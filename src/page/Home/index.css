@@ -1,0 +1,17 @@
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    height: 600px;
+    animation-name: animeWord;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    text-align: center;
+}
+@keyframes animeWord {
+    0% {opacity: 0%;}
+    25% {opacity: 25%;}
+    50% {opacity: 50%;}
+    100% {opacity: 100%;}
+}
