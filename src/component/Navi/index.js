@@ -3,24 +3,21 @@ import React, { useState } from 'react';
 import {NavLink, Navigate, useRoutes} from "react-router-dom";
 import {HomeOutlined,
         AppleOutlined,
-        ShoppingCartOutlined,
-        FireOutlined,
         CarOutlined,
+        DashboardOutlined,
         LoginOutlined} from '@ant-design/icons';
 import { Menu } from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 import './index.css'
 import Home from "../../page/Home";
 import DinningHall from "../../page/Food/DinningHall";
 import FoodElse from "../../page/Food/FoodElse";
-import Store from "../../page/Shop/Store";
-import ShopElse from "../../page/Shop/ShopElse";
+import Store from "../../page/Serve/Store";
 import HairCut from "../../page/Serve/HairCut";
-import Sport from "../../page/Serve/Sport";
+import Sport from "../../page/Sport";
 import Krankenhaus from "../../page/Serve/Krankenhaus";
 import Hotel from "../../page/Serve/Hotel";
-import Daily from "../../page/Daily";
 import Login from "../../page/Login";
 
 function getItem(label, key, icon, children, type) {
@@ -40,18 +37,13 @@ const items = [
         getItem(<NavLink to={'/food/dinninghall'}>食堂</NavLink>, 'dinningHall'),
         getItem(<NavLink to={'/food/foodelse'}>其他美食</NavLink>, 'foodElse'),
     ]),
-    getItem('购物', 'sub3', <ShoppingCartOutlined style={{ fontSize: '120%'}}/>, [
-        getItem(<NavLink to={'/shop/store'}>超市</NavLink>, 'Store'),
-        getItem(<NavLink to={'/shop/shopelse'}>其他超市</NavLink>, 'shopElse'),
-
-    ]),
+    getItem(<NavLink to={'/sport'}>运动</NavLink>,'sub3', <DashboardOutlined style={{ fontSize: '120%'}}/>),
     getItem('服务', 'sub4', <CarOutlined style={{ fontSize: '120%'}}/>, [
         getItem(<NavLink to={'/serve/haircut'}>理发</NavLink>, 'hairCut'),
-        getItem(<NavLink to={'/serve/sport'}>运动</NavLink>, 'sport'),
         getItem(<NavLink to={'/serve/krankenhaus'}>医院</NavLink>, 'krankenhaus'),
         getItem(<NavLink to={'/serve/hotel'}>酒店</NavLink>, 'hotel'),
+        getItem(<NavLink to={'/serve/store'}>超市</NavLink>, 'store'),
     ]),
-    getItem(<NavLink to={'/daily'}>动态</NavLink>, 'sub5',  <FireOutlined style={{ fontSize: '120%'}}/>),
     getItem(<NavLink to={'/login'}>登录/注册</NavLink>, 'sub6', <LoginOutlined style={{ fontSize: '120%'}}/>),
 ];
 
@@ -72,19 +64,15 @@ export default function Navi(props){
             element: <FoodElse/>
         },
         {
-            path: '/shop/store',
+            path: '/serve/store',
             element: <Store/>
-        },
-        {
-            path: '/shop/shopelse',
-            element: <ShopElse/>
         },
         {
             path: '/serve/haircut',
             element: <HairCut/>
         },
         {
-            path: '/serve/sport',
+            path: '/sport',
             element: <Sport/>
         },
         {
@@ -94,10 +82,6 @@ export default function Navi(props){
         {
             path: '/serve/hotel',
             element: <Hotel/>
-        },
-        {
-            path: '/daily',
-            element: <Daily/>
         },
         {
             path: '/login',

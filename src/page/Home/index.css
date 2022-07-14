@@ -7,7 +7,6 @@
     animation-name: animeWord;
     animation-duration: 2s;
     animation-timing-function: ease;
-    text-align: center;
 }
 @keyframes animeWord {
     0% {opacity: 0%;}

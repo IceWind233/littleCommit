@@ -1,0 +1,45 @@
+.item{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 70px 0 20px;
+    background-color: #faad14;
+    height: 28vh;
+    width: 80%;
+}
+.main-item{
+    margin: 20px 0 40px 10%;
+}
+
+#sub-btn{
+    margin-top: 10px;
+}
+.Image{
+    height: 100px;
+}
+.ant-image{
+    height: 100px;
+}
+.rate{
+    height: 30%;
+    width: 450px;
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+.commit{
+    height: 120px;
+    width: 450px;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    align-content: space-around;
+
+}
+.comment{
+    margin-left: 64px;
+}
+.intro{
+    width: 450px;
+}
