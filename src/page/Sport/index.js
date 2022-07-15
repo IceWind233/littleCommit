@@ -26,6 +26,7 @@ export default function Sport(){
                     sport8_name__c
                     sport8_score__c
                     sport8_local__c
+                    sport8_img__c
                 }
             }
         `})
@@ -35,11 +36,13 @@ export default function Sport(){
         getInfo()
     }, [])
     const showSports = () => {
+        console.log(info)
         return info.map(obj=><Item
             key={obj.sport8_id__c}
             name={obj.sport8_name__c}
             score={obj.sport8_score__c}
             address={obj.sport8_local__c}
+            pic={obj.sport8_img__c}
             sort={'sports'}
         />)
 
@@ -47,7 +50,7 @@ export default function Sport(){
 
     return<>
         {isLoad ? (
-            <div>Loading</div>
+            <div>Loading...</div>
         ) : showSports()
         }
     </>

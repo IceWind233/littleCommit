@@ -14,6 +14,7 @@ export default function FoodElse(){
         }})
 
     useEffect(()=>{
+        document.title='小众点评-其他美食'
         const getInfo = async () => {
             const res = await client.query({query:gql`
             query{
@@ -22,6 +23,7 @@ export default function FoodElse(){
                     cuisine8_name__c
                     cuisine8_score__c
                     cuisine8_local__c
+                    cuisine8_img__c
                 }
             }
         `
@@ -42,6 +44,7 @@ export default function FoodElse(){
                 name={obj.cuisine8_name__c}
                 address={obj.cuisine8_local__c}
                 score={obj.cuisine8_score__c}
+                pic={obj.cuisine8_img__c}
                 sort={'FoodElse'}
             />)
     }

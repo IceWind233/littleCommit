@@ -1,8 +1,8 @@
-import ApolloClient, {gql} from "apollo-boost";
 import {useEffect, useState} from "react";
+import ApolloClient, {gql} from "apollo-boost";
 import Item from "../../../component/Item";
 
-export default function Hotel(){
+export default function ServeElse(){
 
     const apikey = '2lBDx35pWMprMB5HZf4bKSJOhfNiVCPhYJDfz-LnWxX'
     const client = new ApolloClient({
@@ -15,7 +15,7 @@ export default function Hotel(){
     const [isLoad, setLoad] = useState(true)
 
     useEffect(()=>{
-        document.title='小众点评-宾馆'
+        document.title='小众点评-其他服务'
         const getInfo = async () => {
             const res = await client.query({query:gql`
             query{
@@ -25,6 +25,7 @@ export default function Hotel(){
                     life_service8_score__c
                     life_service8_local__c
                     life_service8_img__c
+                    life_service8_variety__c
                 }
             }
         `
@@ -35,23 +36,24 @@ export default function Hotel(){
         getInfo()
     }, [])
 
-    const showHotel = () => {
+    const showServiceElse = () => {
+
         return info
             .filter(obj=>
-                obj.life_service8_name__c.includes('宾馆'))
+                obj.life_service8_variety__c==='其他')
             .map(obj=><Item
                 key={obj.life_service8_id__c}
                 name={obj.life_service8_name__c}
                 address={obj.life_service8_local__c}
                 score={obj.life_service8_score__c}
                 pic={obj.life_service8_img__c}
-                sort={'hotel'}
+                sort={'serviceElse'}
             />)
     }
 
     return<>
         {isLoad ? <div>
             Loading...
-        </div> : (showHotel())}
+        </div> : (showServiceElse())}
     </>
 }

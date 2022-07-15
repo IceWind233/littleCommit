@@ -49,7 +49,7 @@ export default function Item(props){
 
     return <div key={info.key} className={'main-item'}>
         <div className={'item'} >
-            <Image className={'Image'} src={props.p_src} alt={info.sort + ' Pic'}/>
+            <Image className={'Image'} src={props.pic} alt={info.sort + ' Pic'}/>
             <div className={'rate'}>
                 <Rate disabled defaultValue={info.score}/><br/>
                 <span className={'intro'}>名称：{info.name},<br/> 位置：{info.address}</span> <br/>

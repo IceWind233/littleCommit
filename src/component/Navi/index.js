@@ -9,7 +9,6 @@ import {HomeOutlined,
 import { Menu } from 'antd';
 import 'antd/dist/antd.min.css';
 
-import './index.css'
 import Home from "../../page/Home";
 import DinningHall from "../../page/Food/DinningHall";
 import FoodElse from "../../page/Food/FoodElse";
@@ -19,6 +18,9 @@ import Sport from "../../page/Sport";
 import Krankenhaus from "../../page/Serve/Krankenhaus";
 import Hotel from "../../page/Serve/Hotel";
 import Login from "../../page/Login";
+import ServeElse from "../../page/Serve/ServeElse";
+import SignUp from "../../page/SignUp";
+import './index.css'
 
 function getItem(label, key, icon, children, type) {
     return {
@@ -43,6 +45,7 @@ const items = [
         getItem(<NavLink to={'/serve/krankenhaus'}>医院</NavLink>, 'krankenhaus'),
         getItem(<NavLink to={'/serve/hotel'}>酒店</NavLink>, 'hotel'),
         getItem(<NavLink to={'/serve/store'}>超市</NavLink>, 'store'),
+        getItem(<NavLink to={'/serve/serviceelse'}>其他</NavLink>, 'serverElse'),
     ]),
     getItem(<NavLink to={'/login'}>登录/注册</NavLink>, 'sub6', <LoginOutlined style={{ fontSize: '120%'}}/>),
 ];
@@ -84,8 +87,16 @@ export default function Navi(props){
             element: <Hotel/>
         },
         {
+            path: '/serve/serviceelse',
+            element: <ServeElse/>
+        },
+        {
             path: '/login',
             element: <Login/>
+        },
+        {
+            path: '/signup',
+            element: <SignUp/>
         },
         {
             path: '/',

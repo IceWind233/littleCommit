@@ -14,6 +14,7 @@ export default function DinningHall(){
         }})
 
     useEffect(()=>{
+        document.title='小众点评-食堂'
         const getInfo = async () => {
             const req = await client.query({query:gql`
             query{
@@ -22,6 +23,7 @@ export default function DinningHall(){
                     cuisine8_name__c
                     cuisine8_score__c
                     cuisine8_local__c
+                    cuisine8_img__c
                 }
             }
         `
@@ -42,6 +44,7 @@ export default function DinningHall(){
             name={obj.cuisine8_name__c}
             address={obj.cuisine8_local__c}
             score={obj.cuisine8_score__c}
+            pic={obj.cuisine8_img__c}
             sort={'dinningHall'}
         />)
     }
