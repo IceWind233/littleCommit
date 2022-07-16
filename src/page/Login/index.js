@@ -5,7 +5,7 @@ import {Button,
         Form,
         Input,
 } from 'antd';
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import cookies from 'react-cookies'
 import ApolloClient, {gql} from "apollo-boost";
 
@@ -17,7 +17,8 @@ export default function Login(){
         headers: {
             Authorization : `Bearer apikey,${apikey}`
         }})
-    const [account, setAccout] =useState()
+    const [account, setAccount] = useState()
+    const history = useNavigate()
 
     const getAccount = async () => {
         const res = await client.query({query:gql`
@@ -30,10 +31,12 @@ export default function Login(){
                 }
                 `
         })
-        setAccout(()=>res.data.users__c)
+        setAccount(()=>res.data.users__c)
     }
 
     useEffect(()=>{
+        cookies.remove('userName')
+
         console.log('Create By IceWind🍟🍟🍟')
         document.title='小众点评-登录'
         getAccount()
@@ -45,9 +48,12 @@ export default function Login(){
         console.log('Success:', values);
         const {username, password} = values
         const flag = account.filter(obj=>obj.usersname__c === username && obj.userspwd__c === password)
-        console.log(flag, account[0].usersname__c === username && account[0].userspwd__c === password)
         if(flag === []) alert('输入正确的用户名及密码')
-        else cookies.save(username, password)
+        else {
+            cookies.save('userName', username)
+            history('/home')
+            alert('登录成功')
+        }
 
         //    最好加个路由守卫
 

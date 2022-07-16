@@ -36,7 +36,6 @@ export default function Sport(){
         getInfo()
     }, [])
     const showSports = () => {
-        console.log(info)
         return info.map(obj=><Item
             key={obj.sport8_id__c}
             name={obj.sport8_name__c}
@@ -49,9 +48,12 @@ export default function Sport(){
     }
 
     return<>
-        {isLoad ? (
-            <div>Loading...</div>
-        ) : showSports()
+        {
+            isLoad ? (
+                <div>Loading...</div>
+            ) : (
+                showSports()
+            )
         }
     </>
 }
