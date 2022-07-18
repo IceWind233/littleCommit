@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 
 import {Button,
-        Checkbox,
         Form,
         Input,
 } from 'antd';
@@ -74,30 +73,26 @@ export default function Login(){
             autoComplete="off"
         >
             <Form.Item
-                label="Username"
+                label="用户名"
                 name="username"
-                rules={[{ required: true, message: 'Please input your username!' }]}
+                rules={[{ required: true, message: '输入用户名!' }]}
             >
                 <Input />
             </Form.Item>
 
             <Form.Item
-                label="Password"
+                label="密码"
                 name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
+                rules={[{ required: true, message: '输入密码' }]}
             >
                 <Input.Password />
             </Form.Item>
 
-            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-                <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                 <Button className={'btn'} type="primary" htmlType="submit">
-                    Submit
+                    登录
                 </Button>
-                <NavLink to={'/signup'}>Don't Have Account?</NavLink>
+                <NavLink to={'/signup'}> 没有账号?</NavLink>
             </Form.Item>
         </Form>
     </div>

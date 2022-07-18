@@ -1,5 +1,5 @@
 
-import {useCallback, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 import {
     Image,
@@ -28,8 +28,8 @@ export default function Item(props){
     const [height, setHeight] = useState(0)
     const [visual, setVisual] = useState(0)
     const [comments, setComments] = useState([])
-    const [disable, setdisable] = useState(true)
-    let username, comment, score
+    const [disable, setDisable] = useState(true)
+    let comment, score
 
     const getComments = async () => {
         setVisual(visual=> visual + 1)
@@ -39,6 +39,8 @@ export default function Item(props){
                     evaluate8_name__c
                     evaluate8_comment__c
                     evaluate8_user_name__c
+                    evaluate8_number__c
+                    evaluate8_id__c
                 }
             }
                 `
@@ -47,7 +49,7 @@ export default function Item(props){
             .filter(obj=>obj.evaluate8_name__c === info.name)
 
         setComments(()=>res)
-        setHeight(()=> visual % 2 === 0 ? 0 : height + 76 * comments.length )
+        // setHeight(()=> visual % 2 === 0 ? 0 : height + 121 * comments.length )
 
     }
     const getCookies = () => {
@@ -55,14 +57,13 @@ export default function Item(props){
     }
 
     useEffect(()=>{
-        setdisable(true)
-        console.log(getCookies())
-        if(getCookies() !== undefined) setdisable(false)
+        setDisable(true)
+        if(getCookies() !== undefined) setDisable(false)
         setVisual(0)
-        setHeight(0)
+        // setHeight(0)
         getComments()
-
-    },[])
+        // eslint-disable-next-line
+    },[props])
 
     const handleClick = () => {
         getComments()
@@ -94,8 +95,7 @@ export default function Item(props){
     }
     const getComment = (event) => {
         comment = event.target.value
-            console.log(comment, '<->', event.target.value)
-        }
+    }
 
 
     return <div key={info.key} className={'main-item'}>
@@ -113,14 +113,17 @@ export default function Item(props){
             </div>
             <Button onClick={handleClick}>{((visual%2) === 0) ? '收起' : '查看'}评论</Button>
         </div>
-        <div className={'comment'} style={{height: height}}>
+        <div className={'comment'} >
             {
-                visual % 2 === 0 ? comments
+                visual % 2 === 0 ? <div className={'comment-list'}>{comments
                         .filter(obj=>obj.evaluate8_name__c === info.name)
-                        .map(obj=><Comments key={info.key}
-                                            au={obj.evaluate8_user_name__c}
-                                            content={obj.evaluate8_comment__c}
-                                            />)
+                        .map(obj=><Comments key={obj.evaluate8_id__c}
+                                            cKey={obj.evaluate8_id__c}
+                                            au={<span style={{fontSize: 15}}>{obj.evaluate8_user_name__c}</span>}
+                                            content={<span style={{fontSize: 20}}>{obj.evaluate8_comment__c}</span>}
+                                            like={obj.evaluate8_number__c}
+                                            />)}
+                    </div>
                     : <></>
             }
         </div>

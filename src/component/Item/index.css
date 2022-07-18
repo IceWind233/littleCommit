@@ -3,9 +3,11 @@
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 70px 0 20px;
-    background-color: #faad14;
+    background-color: #69c0ff;
     height: 28vh;
     width: 80%;
+    border-radius: 5px;
+    margin-left: 100px;
 }
 .main-item{
     margin: 20px 0 40px 10%;
@@ -38,8 +40,14 @@
 
 }
 .comment{
-    margin-left: 64px;
+    margin-left: 162px;
 }
 .intro{
     width: 450px;
+}
+.comment-list{
+    height: 242px;
+    width: 940px;
+    overflow: scroll;
+    overflow-x: hidden;
 }

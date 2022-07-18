@@ -34,18 +34,18 @@ function getItem(label, key, icon, children, type) {
 
 
 const items = [
-    getItem(<NavLink to={'/home'}>Home</NavLink>, 'sub1', <HomeOutlined style={{ fontSize: '120%'}}/>),
+    getItem(<NavLink to={'/home'} className={'navi'}>首页</NavLink>, 'sub1', <HomeOutlined style={{ fontSize: '120%'}}/>),
     getItem('美食', 'sub2', <AppleOutlined style={{ fontSize: '120%'}}/>, [
-        getItem(<NavLink to={'/food/dinninghall'}>食堂</NavLink>, 'dinningHall'),
-        getItem(<NavLink to={'/food/foodelse'}>其他美食</NavLink>, 'foodElse'),
+        getItem(<NavLink className={'navi'} to={'/food/dinninghall'}>食堂</NavLink>, 'dinningHall'),
+        getItem(<NavLink className={'navi'} to={'/food/foodelse'}>其他美食</NavLink>, 'foodElse'),
     ]),
-    getItem(<NavLink to={'/sport'}>运动</NavLink>,'sub3', <DashboardOutlined style={{ fontSize: '120%'}}/>),
+    getItem(<NavLink className={'navi'} to={'/sport'}>运动</NavLink>,'sub3', <DashboardOutlined style={{ fontSize: '120%'}}/>),
     getItem('服务', 'sub4', <CarOutlined style={{ fontSize: '120%'}}/>, [
-        getItem(<NavLink to={'/serve/haircut'}>理发</NavLink>, 'hairCut'),
-        getItem(<NavLink to={'/serve/krankenhaus'}>医院</NavLink>, 'krankenhaus'),
-        getItem(<NavLink to={'/serve/hotel'}>酒店</NavLink>, 'hotel'),
-        getItem(<NavLink to={'/serve/store'}>超市</NavLink>, 'store'),
-        getItem(<NavLink to={'/serve/serviceelse'}>其他</NavLink>, 'serverElse'),
+        getItem(<NavLink className={'navi'} to={'/serve/haircut'}>理发</NavLink>, 'hairCut'),
+        getItem(<NavLink className={'navi'} to={'/serve/krankenhaus'}>医院</NavLink>, 'krankenhaus'),
+        getItem(<NavLink className={'navi'} to={'/serve/hotel'}>酒店</NavLink>, 'hotel'),
+        getItem(<NavLink className={'navi'} to={'/serve/store'}>超市</NavLink>, 'store'),
+        getItem(<NavLink className={'navi'} to={'/serve/serviceelse'}>其他</NavLink>, 'serverElse'),
     ]),
     getItem(<NavLink to={'/login'}>登录/注册</NavLink>, 'sub6', <LoginOutlined style={{ fontSize: '120%'}}/>),
 ];
