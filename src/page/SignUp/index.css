@@ -1,0 +1,9 @@
+#signUpForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 300px;
+    margin-left: 500px;
+    margin-top: 200px;
+}

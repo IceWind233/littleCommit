@@ -8,6 +8,8 @@ import {NavLink, useNavigate} from 'react-router-dom'
 import cookies from 'react-cookies'
 import ApolloClient, {gql} from "apollo-boost";
 
+import './index.css'
+
 export default function Login(){
 
     const apikey = '2lBDx35pWMprMB5HZf4bKSJOhfNiVCPhYJDfz-LnWxX'
@@ -65,8 +67,8 @@ export default function Login(){
     return <div id={'login'}>
         <Form
             name="basic"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
+            labelCol={{ span: 6 }}
+            wrapperCol={{ span: 30 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}

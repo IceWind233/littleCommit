@@ -5,6 +5,8 @@ import {Form, Button, Input} from 'antd'
 import {useNavigate} from "react-router-dom";
 import ApolloClient, {gql} from "apollo-boost";
 
+import './index.css'
+
 export default function SignUp(props){
 
     const apikey = '2lBDx35pWMprMB5HZf4bKSJOhfNiVCPhYJDfz-LnWxX'
@@ -25,7 +27,7 @@ export default function SignUp(props){
     },[])
 
     const formItemLayout={
-        labelCol: {sm: {span: 6, offset: 1}}
+        labelCol: {sm: {span: 8, offset: 1}}
     }
 
     const onFinish = (value)=>{

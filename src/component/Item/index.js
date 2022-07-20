@@ -41,6 +41,7 @@ export default function Item(props){
                     evaluate8_user_name__c
                     evaluate8_number__c
                     evaluate8_id__c
+                    _id
                 }
             }
                 `
@@ -82,11 +83,13 @@ export default function Item(props){
                     evaluate8_comment__c: "${comment}",
                     evaluate8_score__c: "${score}",
                     evaluate8_user_name__c: "${getCookies()}",
+                    evaluate8_number__c: "0",
                 }){
                     evaluate8_name__c
                     evaluate8_comment__c
                     evaluate8_score__c
                     evaluate8_user_name__c
+                    evaluate8_number__c
                 }
             }
                 `
@@ -117,8 +120,8 @@ export default function Item(props){
             {
                 visual % 2 === 0 ? <div className={'comment-list'}>{comments
                         .filter(obj=>obj.evaluate8_name__c === info.name)
-                        .map(obj=><Comments key={obj.evaluate8_id__c}
-                                            cKey={obj.evaluate8_id__c}
+                        .map(obj=><Comments key={obj._id}
+                                            cKey={obj._id}
                                             au={<span style={{fontSize: 15}}>{obj.evaluate8_user_name__c}</span>}
                                             content={<span style={{fontSize: 20}}>{obj.evaluate8_comment__c}</span>}
                                             like={obj.evaluate8_number__c}
